@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhinomec</title>
+    <style>
+        /* Estilo general */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #316532e6;
+            color: #ffffff;
+            padding: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+            text-decoration: none;
+            color: #f3f316;
+            transition: color 0.3s;
+        }
+
+        /* Sección principal */
+        
+
+        .main-header {
+    background-image: url('images/bombero2.jpg'); /* Ruta de la imagen */
+    background-size: cover; /* Asegura que la imagen cubra todo el espacio disponible */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+    padding: 50px 20px;
+    text-align: center;
+    height: 30vh; /* Ajusta la altura relativa al viewport */
+}
+/* Ajustes para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .main-header {
+        height: 40vh; /* Reduce la altura en pantallas más pequeñas */
+        padding: 20px 10px; /* Ajusta el espaciado */
+    }
+    
+}
+
+        
+        .main-header p {
+            font-size: 1.2em;
+        }
+
+        /* Sección de Servicios */
+        .services {
+            background-color: #fff;
+            padding: 40px;
+            text-align: center;
+        }
+        .services h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #003000;
+        }
+        .service-cards {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            flex-wrap: wrap; /* Para que los servicios se acomoden en pantallas pequeñas */
+        }
+        .service-card {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 22%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .service-card:hover {
+            transform: translateY(-10px); /* Efecto de elevación al pasar el mouse */
+        }
+        .service-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .service-card h3 {
+            font-size: 1.8em;
+            color: #003000;
+        }
+        .service-card p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .service-card button {
+            background-color: #256725;
+            color: white;
+            font-size: 1.1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .service-card button:hover {
+            background-color: #004600;
+        }
+
+        /* Sección de Contactos */
+        .contact {
+            background-color: #e7e7e7;
+            padding: 40px;
+            text-align: center;
+        }
+        .contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .contact p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #333333cb;
+            color: white;
+            text-align: center;
+            padding: 3px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            margin-top: auto;
+
+        
+            
+        }
+        html {
+    scroll-behavior: smooth;
+}
+.contact div img {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Unifica las transiciones */
+    opacity: 0.8; /* Estado inicial tenue */
+}
+
+.contact div img:hover {
+    transform: scale(1.2); /* Aumenta el tamaño en un 20% */
+    opacity: 1; /* Restaura opacidad completa */
+}
+
+
+
+
+        /* Media Queries para hacer la página responsive */
+        @media screen and (max-width: 1024px) {
+            /* Para pantallas de tablet o menos */
+            .service-card {
+                width: 45%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            /* Para pantallas de smartphones (más pequeñas) */
+            .service-card {
+                width: 100%;
+            }
+            .services h2 {
+                font-size: 2em;
+            }
+            .main-header h1 {
+                font-size: 2.5em;
+            }
+            .main-header p {
+                font-size: 1em;
+            }
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+        @media screen and (max-width: 768px) {
+    .contact div {
+        display: inline-block;
+        margin: 5px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .service-card button {
+        font-size: 1.2em;
+        padding: 15px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <nav>
+        <div class="logo">
+            <a href="#inicio">
+                <img src="images/logo.png" alt="Logo" width="180" height="70">
+            </a>
+        </div>
+        <ul>
+            
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#contacto">Contactos</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección principal de la página -->
+    <header class="main-header" id="inicio">
+        <h1>Soluciones profesionales para vehículos especiales</h1>
+
+        
+        
+    </header>
+
+    <!-- Sección de Servicios -->
+    <section class="services" id="servicios">
+        <h2>Nuestros Servicios</h2>
+        <div class="service-cards">
+            <!-- Servicio 1: Refurbished -->
+            <div class="service-card">
+                <img src="images/carro.jpg" alt="Servicio Refurbished">
+                <h3>REFURBISHED</h3>
+                <p>La RENOVACIÓN es uno de los núcleos de nuestro negocio, recibimos vehículos fabricados en todo el mundo. La experiencia nos ha permitido convertirnos en el líder en la industria de REFABRICACIÓN.</p>
+                <button onclick="window.location.href='#'">Más Información</button>
+            </div>
+            <!-- Servicio 2: Venta de Carros Nuevos -->
+            <div class="service-card">
+                <img src="images/carro2.jpg" alt="Venta de Carros Nuevos">
+                <h3>Venta de Carros Nuevos</h3>
+                <p>Ofrecemos una amplia gama de vehículos de marcas líderes, adaptados a tus necesidades y rendimiento.</p>
+                <button onclick="window.location.href='#'">Más Información</button>
+            </div>
+            <!-- Servicio 3: Proyectos Especiales -->
+            <div class="service-card">
+                <img src="images/carro3.jpg" alt="Proyectos Especiales">
+                <h3>Reparación y mantención</h3>
+                <p>Desarrollamos soluciones personalizadas para carros y flotas, adaptadas a necesidades específicas, como modificación de carrocerías o implementos especiales.</p>
+                <button onclick="window.location.href='#'">Más Información</button>
+            </div>
+            <!-- Servicio 4: Diseño e Ingeniería Industrial -->
+            <div class="service-card">
+                <img src="images/carro4.jpg" alt="Diseño e Ingeniería Industrial">
+                <h3>Diseño e Ingeniería Industrial</h3>
+                <p>Ofrecemos soluciones innovadoras en diseño y optimización de procesos industriales, aplicados a la fabricación de piezas y reparación de vehículos.</p>
+                <button onclick="window.location.href='#'">Más Información</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section class="contact" id="contacto">
+        <h2>Contáctanos</h2>
+        <p><strong>Dirección:</strong> Valparaiso, Curauma</p>
+        <p><strong>Correo electronico:</strong> Rinomec@gmail.com</p>
+        <p><strong>Buscanos en nuestras redes</strong>
+            <div class="twitter">
+                <a href="#">
+                    <img src="images/app3.png" alt="twitter" width="50" height="50">
+                </a>
+            </div>
+            <div class="facebook">
+                <a href="#">
+                    <img src="images/app1.png" alt="facebook" width="50" height="50">
+                </a>
+            </div>
+            <div class="instagram">
+                <a href="#">
+                    <img src="images/app2.png" alt="instagram" width="50" height="50">
+                </a>
+            </div>
+            
+            
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Rhinomec | Todos los derechos reservados</p>
+    </footer>
+
+</body>
+</html>
